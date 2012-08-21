@@ -1,0 +1,51 @@
+<IfModule mysql_auth_module>
+
+AuthType Basic
+AuthName "MySQL Member Page"
+
+Auth_MYSQLhost www.kaoscms.eo
+## Auth_MYSQLusername grafikkaos_kaoscms
+## Auth_MYSQLpassword gJcY3xju}:XP
+## Auth_MYSQLgrp_table
+Auth_MYSQLdatabase grafikkaos_kaoscms
+Auth_MYSQLpwd_table ks_users
+Auth_MYSQLuid_field username_usr
+Auth_MYSQLpwd_field password_usr
+## Auth_MYSQL_EncryptedPasswords off
+require valid-user
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    	
+	RewriteEngine On
+	
+    	#RewriteBase /
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+    	RewriteCond %{REQUEST_FILENAME} !-d
+    	RewriteRule ^admin/(.*)$ admin.php/$1 [L]
+    	RewriteRule ^admin/$ admin.php [L]
+    	RewriteRule ^admin$ admin.php [L]
+
+    	#RewriteRule ^install/(.*)$ install.php/$1 [L]
+    	#RewriteRule ^install/$ install.php [L]
+    	#RewriteRule ^install$ install.php [L]
+
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond %{REQUEST_FILENAME} !-d
+    	#RewriteRule ^admin(.*)$ admin.php [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+    	RewriteCond %{REQUEST_FILENAME} !-d
+    	RewriteRule ^(.*)$ index.php/$1 [L]
+
+    	#RewriteCond %{REQUEST_FILENAME} !-f
+    	#RewriteCond %{REQUEST_FILENAME} !-d
+    	#RewriteRule ^install(.*)$ install.php [L]
+
+
+
+</IfModule>
+
+
